@@ -1,0 +1,18 @@
+/*! purgecss start ignore */
+@import "../../../../mods/bigger-picture/bigger-picture";
+
+.bp-wrap {
+    z-index: 1100;
+}
+
+img {
+    cursor: zoom-in;
+}
+
+a {
+    img {
+        cursor: pointer;
+    }
+}
+
+/*! purgecss end ignore */
