@@ -1,18 +1,12 @@
 import BiggerPicture from 'mods/bigger-picture/bigger-picture.umd.js'
 
 (() => {
-    const bp = BiggerPicture({
-        target: document.body,
-    })
+    window.addEventListener('load', () => {
+        const bp = BiggerPicture({
+            target: document.body,
+        })
 
-    const images = document.querySelectorAll('img')
-    for (const img of images) {
-        // ignore linkable images.
-        if (img.parentElement?.tagName === 'A') {
-            continue
-        }
-
-        img.addEventListener('click', () => {
+        const show = (img) => {
             bp.open({
                 items: [{
                     img: img.src,
@@ -21,6 +15,18 @@ import BiggerPicture from 'mods/bigger-picture/bigger-picture.umd.js'
                 }],
                 intro: 'fadeup'
             })
-        })
-    }
+        }
+
+        const images = document.querySelectorAll('img')
+        for (const img of images) {
+            // ignore linkable images.
+            if (img.parentElement?.tagName === 'A') {
+                continue
+            }
+
+            img.addEventListener('click', () => {
+                show(img)
+            })
+        }
+    })
 })()
