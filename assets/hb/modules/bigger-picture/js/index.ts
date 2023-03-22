@@ -8,11 +8,7 @@ import BiggerPicture from 'mods/bigger-picture/bigger-picture.umd.js'
 
         const show = (img) => {
             bp.open({
-                items: [{
-                    img: img.src,
-                    height: img.naturalHeight,
-                    width: img.naturalWidth,
-                }],
+                items: [img],
                 intro: 'fadeup'
             })
         }
@@ -25,7 +21,21 @@ import BiggerPicture from 'mods/bigger-picture/bigger-picture.umd.js'
             }
 
             img.addEventListener('click', () => {
-                show(img)
+                show({
+                    img: img.src,
+                    height: img.naturalHeight,
+                    width: img.naturalWidth,
+                })
+            })
+        }
+
+        const links = document.querySelectorAll('.img-link')
+        for (const link of links) {
+            link.addEventListener('click', (e) => {
+                e.preventDefault()
+                show({
+                    img: link.getAttribute('href'),
+                })
             })
         }
     })
