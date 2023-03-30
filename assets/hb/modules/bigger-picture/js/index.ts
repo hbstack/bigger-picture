@@ -21,6 +21,12 @@ import BiggerPicture from 'mods/bigger-picture/bigger-picture.umd.js'
             }
 
             img.addEventListener('click', () => {
+                const src = img.getAttribute('data-src')
+                if (src) {
+                    show({ img: src })
+                    return
+                }
+
                 show({
                     img: img.src,
                     height: img.naturalHeight,
