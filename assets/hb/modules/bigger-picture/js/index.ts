@@ -16,7 +16,7 @@ import BiggerPicture from 'mods/bigger-picture/bigger-picture.umd.js'
         const images = document.querySelectorAll('img')
         for (const img of images) {
             // ignore linkable images.
-            if (img.parentElement?.tagName === 'A') {
+            if (img.parentElement?.closest('a')) {
                 continue
             }
 
