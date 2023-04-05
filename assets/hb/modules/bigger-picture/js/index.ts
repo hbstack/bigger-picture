@@ -25,16 +25,20 @@ import BiggerPicture from 'mods/bigger-picture/bigger-picture.umd.js'
                     img: img.getAttribute('data-src') ?? img.src,
                     height: img.getAttribute('data-height') ?? img.naturalHeight,
                     width: img.getAttribute('data-width') ?? img.naturalWidth,
+                    alt: img.getAttribute('alt'),
+                    caption: img.getAttribute('alt'),
                 })
             })
         }
 
-        const links = document.querySelectorAll('.img-link')
+        const links = Array.from(document.querySelectorAll<HTMLElement>('.img-link'))
         for (const link of links) {
             link.addEventListener('click', (e) => {
                 e.preventDefault()
                 show({
                     img: link.getAttribute('href'),
+                    alt: link.innerText,
+                    caption: link.innerText,
                 })
             })
         }
