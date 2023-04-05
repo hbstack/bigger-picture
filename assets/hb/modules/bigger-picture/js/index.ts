@@ -1,7 +1,7 @@
 import BiggerPicture from 'mods/bigger-picture/bigger-picture.umd.js'
 
 (() => {
-    window.addEventListener('load', () => {
+    document.addEventListener('DOMContentLoaded', () => {
         const bp = BiggerPicture({
             target: document.body,
         })
