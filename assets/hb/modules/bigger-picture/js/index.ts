@@ -6,28 +6,49 @@ import BiggerPicture from 'mods/bigger-picture/bigger-picture.umd.js'
             target: document.body,
         })
 
-        const show = (img) => {
+        const show = (imgs, pos) => {
             bp.open({
-                items: [img],
-                intro: 'fadeup'
+                items: imgs,
+                intro: 'fadeup',
+                position: pos,
             })
+        }
+
+        const data = (img: HTMLImageElement) => {
+            return {
+                img: img.getAttribute('data-src') ?? img.src,
+                height: img.getAttribute('data-height') ?? img.naturalHeight,
+                width: img.getAttribute('data-width') ?? img.naturalWidth,
+                alt: img.getAttribute('alt'),
+                caption: img.getAttribute('alt'),
+            }
         }
 
         const images = document.querySelectorAll('img')
         for (const img of images) {
             // ignore linkable images.
-            if (img.parentElement?.closest('a')) {
+            if (img.closest('a')) {
                 continue
             }
 
             img.addEventListener('click', () => {
-                show({
-                    img: img.getAttribute('data-src') ?? img.src,
-                    height: img.getAttribute('data-height') ?? img.naturalHeight,
-                    width: img.getAttribute('data-width') ?? img.naturalWidth,
-                    alt: img.getAttribute('alt'),
-                    caption: img.getAttribute('alt'),
-                })
+                const imgs: Array<unknown> = []
+                let pos = 0
+                const set = img.closest('.bigger-pictures')
+                if (set) {
+                    // display a set of images.
+                    const els = set.querySelectorAll<HTMLImageElement>('img')
+                    for (let i = 0; i < els.length; i++) {
+                        if (els[i] === img) {
+                            pos = i
+                        }
+                        imgs.push(data(els[i]))
+                    }
+                } else {
+                    imgs.push(data(img))
+                }
+
+                show(imgs, pos)
             })
         }
 
@@ -35,11 +56,11 @@ import BiggerPicture from 'mods/bigger-picture/bigger-picture.umd.js'
         for (const link of links) {
             link.addEventListener('click', (e) => {
                 e.preventDefault()
-                show({
+                show([{
                     img: link.getAttribute('href'),
                     alt: link.innerText,
                     caption: link.innerText,
-                })
+                }], 0)
             })
         }
     })
