@@ -9,7 +9,7 @@ import BiggerPicture from 'mods/bigger-picture/bigger-picture.umd.js'
         const show = (imgs, pos) => {
             bp.open({
                 items: imgs,
-                intro: 'fadeup',
+                // intro: 'fadeup',
                 position: pos,
             })
         }
@@ -21,6 +21,7 @@ import BiggerPicture from 'mods/bigger-picture/bigger-picture.umd.js'
                 width: img.getAttribute('data-width') ?? img.naturalWidth,
                 alt: img.getAttribute('alt'),
                 caption: img.getAttribute('alt'),
+                thumb: img.src,
             }
         }
 
