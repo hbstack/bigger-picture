@@ -9,7 +9,7 @@ import BiggerPicture from 'mods/bigger-picture/bigger-picture.umd.js'
         const show = (imgs, pos) => {
             bp.open({
                 items: imgs,
-                // intro: 'fadeup',
+                intro: 'fadeup',
                 position: pos,
             })
         }
