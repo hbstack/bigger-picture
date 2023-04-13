@@ -1,0 +1,7 @@
+classes = [
+    'd-flex',
+    'justify-content-center',
+    'mt-2',
+    'text-decoration-none',
+    'w-100',
+]
