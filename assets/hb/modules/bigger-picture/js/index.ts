@@ -20,7 +20,7 @@ import BiggerPicture from 'mods/bigger-picture/bigger-picture.umd.js'
             a.href = url
             a.title = 'Download'
             a.role = 'button'
-            a.classList.add('text-decoration-none')
+            a.classList.add('text-decoration-none', 'p-2')
             a.setAttribute('download', name)
             a.innerText = '💾'
             return a
