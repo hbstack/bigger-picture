@@ -6,11 +6,36 @@ import BiggerPicture from 'mods/bigger-picture/bigger-picture.umd.js'
             target: document.body,
         })
 
+        const panel = (container, item) => {
+            const p = document.createElement('div')
+            p.classList.add('bp-panel', 'd-flex', 'justify-content-center', 'w-100', 'mt-2')
+
+            p.appendChild(download(item.img, item.alt))
+
+            container.querySelector('.bp-inner').appendChild(p)
+        }
+
+        const download = (url, name): HTMLAnchorElement => {
+            const a =  document.createElement('a')
+            a.href = url
+            a.title = 'Download'
+            a.role = 'button'
+            a.classList.add('text-decoration-none')
+            a.setAttribute('download', name)
+            a.innerText = '💾'
+            return a
+        }
+
+        const update = (container, item) => {
+            panel(container, item)
+        }
+
         const show = (imgs, pos) => {
             bp.open({
                 items: imgs,
                 intro: 'fadeup',
                 position: pos,
+                onUpdate: update,
             })
         }
 
