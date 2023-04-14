@@ -8,7 +8,7 @@ import BiggerPicture from 'mods/bigger-picture/bigger-picture.umd.js'
 
         const panel = (container, item) => {
             const p = document.createElement('div')
-            p.classList.add('bp-panel', 'd-flex', 'justify-content-center', 'w-100', 'mt-2')
+            p.classList.add('bp-panel', 'position-absolute', 'mx-auto', 'start-0', 'end-0', 'text-center')
 
             p.appendChild(download(item.img, item.alt))
 
