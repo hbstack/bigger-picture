@@ -1,8 +1,9 @@
 classes = [
-    'd-flex',
-    'justify-content-center',
-    'mt-2',
+    'end-0',
+    'mx-auto',
     'p-2',
+    'position-absolute',
+    'start-0',
+    'text-center',
     'text-decoration-none',
-    'w-100',
 ]
