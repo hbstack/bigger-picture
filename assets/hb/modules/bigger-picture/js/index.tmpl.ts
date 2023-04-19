@@ -1,4 +1,9 @@
+{{- $iconSize := "1.25em" }}
+{{- $downloadIcon := partial "icons/icon" (dict "vendor" "bs" "name" "download" "width" $iconSize "height" $iconSize) }}
+{{- $shareIcon := partial "icons/icon" (dict "vendor" "bs" "name" "share" "width" $iconSize "height" $iconSize) }}
+
 import BiggerPicture from 'mods/bigger-picture/bigger-picture.umd.js'
+import Panel from './panel'
 
 (() => {
     document.addEventListener('DOMContentLoaded', () => {
@@ -6,28 +11,14 @@ import BiggerPicture from 'mods/bigger-picture/bigger-picture.umd.js'
             target: document.body,
         })
 
-        const panel = (container, item) => {
-            const p = document.createElement('div')
-            p.classList.add('bp-panel', 'position-absolute', 'mx-auto', 'start-0', 'end-0', 'text-center')
+        const panel = new Panel(`{{ $downloadIcon }}`, `{{ $shareIcon }}`)
 
-            p.appendChild(download(item.img, item.alt))
-
-            container.querySelector('.bp-inner').appendChild(p)
+        const onOpen = (container: HTMLElement) => {
+            panel.init(container)
         }
 
-        const download = (url, name): HTMLAnchorElement => {
-            const a =  document.createElement('a')
-            a.href = url
-            a.title = 'Download'
-            a.role = 'button'
-            a.classList.add('text-decoration-none', 'p-2')
-            a.setAttribute('download', name)
-            a.innerText = '💾'
-            return a
-        }
-
-        const update = (container, item) => {
-            panel(container, item)
+        const onUpdate = (container: HTMLElement, item) => {
+            panel.update(container, item)
         }
 
         const show = (imgs, pos) => {
@@ -35,7 +26,8 @@ import BiggerPicture from 'mods/bigger-picture/bigger-picture.umd.js'
                 items: imgs,
                 intro: 'fadeup',
                 position: pos,
-                onUpdate: update,
+                onOpen: onOpen,
+                onUpdate: onUpdate,
             })
         }
 
