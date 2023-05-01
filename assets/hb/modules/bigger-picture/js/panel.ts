@@ -2,6 +2,7 @@ export default class Panel {
     constructor(
         private downloadIcon: string,
         private shareIcon: string,
+        private rotateIcon: string,
     ) {
 
     }
@@ -9,6 +10,8 @@ export default class Panel {
     init(container: HTMLElement) {
         const p = document.createElement('div')
         p.classList.add('bp-panel', 'd-flex', 'position-absolute', 'mx-auto', 'start-0', 'end-0', 'text-center')
+        p.appendChild(this.rotate(false))
+        p.appendChild(this.rotate(true))
         p.appendChild(this.download())
         p.appendChild(this.share())
         container.appendChild(p)
@@ -21,6 +24,39 @@ export default class Panel {
         const d = p.querySelector('.bp-panel-download') as HTMLAnchorElement
         d.href = item.img
         d.download = item.alt
+    }
+
+    imgWrap = (): HTMLElement => {
+        return document.querySelector('.bp-img-wrap') as HTMLElement
+    }
+
+    rotate = (clockwise = false): HTMLAnchorElement => {
+        const wrap = this.imgWrap()
+        const a = document.createElement('a')
+        a.title = 'Rotate'
+        a.role = 'button'
+        a.classList.add('bp-panel-action', 'bp-panel-rotate', clockwise ? 'bp-panel-rotate-clockwise' : 'bp-panel-rotate-anticlockwise', 'text-decoration-none', 'p-2')
+        a.innerHTML = this.rotateIcon
+        a.addEventListener('click', () => {
+            let value = parseInt(wrap.getAttribute('data-rotate') ?? '0')
+            value += clockwise ? 90 : -90
+            wrap.setAttribute('data-rotate', value.toString())
+            this.transform()
+        })
+        return a
+    }
+
+    transform = () => {
+        const wrap = this.imgWrap()
+
+        const transform: Array<string> = []
+
+        const rotate = wrap.getAttribute('data-rotate')
+        if (rotate) {
+            transform.push(`rotate(${parseInt(rotate)}deg)`)
+        }
+
+        wrap.style.transform = transform.join(" ")
     }
 
     download = (): HTMLAnchorElement => {
