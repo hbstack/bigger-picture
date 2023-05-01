@@ -35,4 +35,10 @@ a {
     }
 }
 
+.bp-panel-rotate-anticlockwise {
+    svg {
+        transform: scaleX(-1);
+    }
+}
+
 /*! purgecss end ignore */
