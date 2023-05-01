@@ -3,6 +3,7 @@ export default class Panel {
         private downloadIcon: string,
         private shareIcon: string,
         private rotateIcon: string,
+        private flipIcon: string,
     ) {
 
     }
@@ -12,6 +13,7 @@ export default class Panel {
         p.classList.add('bp-panel', 'd-flex', 'position-absolute', 'mx-auto', 'start-0', 'end-0', 'text-center')
         p.appendChild(this.rotate(false))
         p.appendChild(this.rotate(true))
+        p.appendChild(this.flip())
         p.appendChild(this.download())
         p.appendChild(this.share())
         container.appendChild(p)
@@ -46,6 +48,24 @@ export default class Panel {
         return a
     }
 
+    flip = (): HTMLAnchorElement => {
+        const a = document.createElement('a')
+        a.title = 'Flip'
+        a.role = 'button'
+        a.classList.add('bp-panel-action', 'bp-panel-flip', 'text-decoration-none', 'p-2')
+        a.innerHTML = this.flipIcon
+        a.addEventListener('click', () => {
+            const wrap = this.imgWrap()
+            if (wrap.hasAttribute('data-flip')) {
+                wrap.removeAttribute('data-flip')
+            } else {
+                wrap.setAttribute('data-flip', 'true')
+            }
+            this.transform()
+        })
+        return a
+    }
+
     transform = () => {
         const wrap = this.imgWrap()
 
@@ -54,6 +74,11 @@ export default class Panel {
         const rotate = wrap.getAttribute('data-rotate')
         if (rotate) {
             transform.push(`rotate(${parseInt(rotate)}deg)`)
+        }
+
+        const flip = wrap.getAttribute('data-flip')
+        if (flip) {
+            transform.push('scaleX(-1)')
         }
 
         wrap.style.transform = transform.join(" ")
