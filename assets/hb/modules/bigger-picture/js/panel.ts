@@ -33,17 +33,17 @@ export default class Panel {
     }
 
     rotate = (clockwise = false): HTMLAnchorElement => {
-        const wrap = this.imgWrap()
         const a = document.createElement('a')
         a.title = 'Rotate'
         a.role = 'button'
         a.classList.add('bp-panel-action', 'bp-panel-rotate', clockwise ? 'bp-panel-rotate-clockwise' : 'bp-panel-rotate-anticlockwise', 'text-decoration-none', 'p-2')
         a.innerHTML = this.rotateIcon
         a.addEventListener('click', () => {
+            const wrap = this.imgWrap()
             let value = parseInt(wrap.getAttribute('data-rotate') ?? '0')
             value += clockwise ? 90 : -90
             wrap.setAttribute('data-rotate', value.toString())
-            this.transform()
+            this.transform(wrap)
         })
         return a
     }
@@ -61,14 +61,12 @@ export default class Panel {
             } else {
                 wrap.setAttribute('data-flip', 'true')
             }
-            this.transform()
+            this.transform(wrap)
         })
         return a
     }
 
-    transform = () => {
-        const wrap = this.imgWrap()
-
+    private transform = (wrap: HTMLElement) => {
         const transform: Array<string> = []
 
         const rotate = wrap.getAttribute('data-rotate')
