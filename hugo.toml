@@ -9,3 +9,6 @@ path = "github.com/henrygd/bigger-picture"
 [[module.imports.mounts]]
 source = "dist"
 target = "assets/mods/bigger-picture"
+
+[params.hb.bigger_picture]
+play_interval = 5000 # in milliseconds.

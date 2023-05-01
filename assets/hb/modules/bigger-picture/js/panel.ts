@@ -1,9 +1,13 @@
+import {default as params} from '@params'
+
 export default class Panel {
     constructor(
+        private bp,
         private downloadIcon: string,
         private shareIcon: string,
         private rotateIcon: string,
         private flipIcon: string,
+        private playIcon: string,
     ) {
 
     }
@@ -14,6 +18,7 @@ export default class Panel {
         p.appendChild(this.rotate(false))
         p.appendChild(this.rotate(true))
         p.appendChild(this.flip())
+        p.appendChild(this.play())
         p.appendChild(this.download())
         p.appendChild(this.share())
         container.appendChild(p)
@@ -80,6 +85,32 @@ export default class Panel {
         }
 
         wrap.style.transform = transform.join(" ")
+    }
+
+    private playJob = 0
+
+    private playInterval = 1000
+
+    play = (): HTMLAnchorElement => {
+        const a = document.createElement('a')
+        a.title = 'Play'
+        a.role = 'button'
+        a.classList.add('bp-panel-action', 'bp-panel-play', 'text-decoration-none', 'p-2')
+        a.innerHTML = this.playIcon
+        a.addEventListener('click', () => {
+            if (this.playJob) {
+                clearInterval(this.playJob)
+                this.playJob = 0
+                a.classList.remove('active')
+                return
+            }
+
+            a.classList.add('active')
+            this.playJob = setInterval(() => {
+                this.bp.next()
+            }, params.bigger_picture.play_interval ?? 5000)
+        })
+        return a
     }
 
     download = (): HTMLAnchorElement => {

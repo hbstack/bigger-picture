@@ -3,6 +3,7 @@
 {{- $shareIcon := partial "icons/icon" (dict "vendor" "bs" "name" "share" "width" $iconSize "height" $iconSize) }}
 {{- $rotateIcon := partial "icons/icon" (dict "vendor" "bs" "name" "arrow-clockwise" "width" $iconSize "height" $iconSize) }}
 {{- $flipIcon := partial "icons/icon" (dict "vendor" "bs" "name" "phone-flip" "width" $iconSize "height" $iconSize) }}
+{{- $playIcon := partial "icons/icon" (dict "vendor" "bs" "name" "play-circle" "width" $iconSize "height" $iconSize) }}
 
 import BiggerPicture from 'mods/bigger-picture/bigger-picture.umd.js'
 import Panel from './panel'
@@ -13,7 +14,7 @@ import Panel from './panel'
             target: document.body,
         })
 
-        const panel = new Panel(`{{ $downloadIcon }}`, `{{ $shareIcon }}`, `{{ $rotateIcon }}`, `{{ $flipIcon }}`)
+        const panel = new Panel(bp, `{{ $downloadIcon }}`, `{{ $shareIcon }}`, `{{ $rotateIcon }}`, `{{ $flipIcon }}`, `{{ $playIcon }}`)
 
         const onOpen = (container: HTMLElement) => {
             panel.init(container)
