@@ -22,9 +22,11 @@ a {
     z-index: 1;
 
     .bp-panel-action {
+        align-items: center;
         background: rgba(0, 0, 0, 0.5);
-        color: white;
         border-radius: 0.5rem;
+        color: white;
+        display: flex;
         margin: 0 0.25rem;
     }
 }
