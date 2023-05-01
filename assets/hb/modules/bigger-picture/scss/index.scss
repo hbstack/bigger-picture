@@ -41,4 +41,10 @@ a {
     }
 }
 
+.bp-panel-play {
+    &.active {
+        background: var(--#{$prefix}primary);
+    }
+}
+
 /*! purgecss end ignore */
