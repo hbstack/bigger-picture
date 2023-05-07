@@ -8,4 +8,5 @@ classes = [
     'start-0',
     'text-center',
     'text-decoration-none',
+    'text-white',
 ]
