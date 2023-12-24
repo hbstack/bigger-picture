@@ -4,6 +4,7 @@
 {{- $rotateIcon := partial "icons/icon" (dict "vendor" "bs" "name" "arrow-clockwise" "width" $iconSize "height" $iconSize) }}
 {{- $flipIcon := partial "icons/icon" (dict "vendor" "bs" "name" "phone-flip" "width" $iconSize "height" $iconSize) }}
 {{- $playIcon := partial "icons/icon" (dict "vendor" "bs" "name" "play-circle" "width" $iconSize "height" $iconSize) }}
+{{- $scale := default 2 site.Params.hb.bigger_picture.scale }}
 
 import BiggerPicture from 'mods/bigger-picture/bigger-picture.umd.js'
 import Panel from './panel'
@@ -34,11 +35,13 @@ import Panel from './panel'
             })
         }
 
+        const scale = parseInt('{{ $scale }}')
+
         const data = (img: HTMLImageElement) => {
             return {
                 img: img.getAttribute('data-src') ?? img.src,
-                height: img.getAttribute('data-height') ?? img.naturalHeight,
-                width: img.getAttribute('data-width') ?? img.naturalWidth,
+                height: scale * (img.getAttribute('data-height') ?? img.naturalHeight),
+                width: scale * (img.getAttribute('data-width') ?? img.naturalWidth),
                 alt: img.getAttribute('alt'),
                 caption: img.getAttribute('alt'),
                 thumb: img.src,
