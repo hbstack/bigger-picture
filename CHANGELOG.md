@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.10.1](https://github.com/hbstack/bigger-picture/compare/v0.10.0...v0.10.1) (2023-12-28)
+
+
+### Bug Fixes
+
+* use figcaption as caption if found ([#136](https://github.com/hbstack/bigger-picture/issues/136)) ([c4a73bf](https://github.com/hbstack/bigger-picture/commit/c4a73bf7be539ff2d75e07e4ff119e26665ea4c8))
+
 ## [0.10.0](https://github.com/hbstack/bigger-picture/compare/v0.9.0...v0.10.0) (2023-12-24)
 
 
