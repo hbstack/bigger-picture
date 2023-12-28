@@ -38,12 +38,18 @@ import Panel from './panel'
         const scale = parseInt('{{ $scale }}')
 
         const data = (img: HTMLImageElement) => {
+            const alt = img.getAttribute('alt')
+            let caption = alt
+            const captionEle = img.parentNode.querySelector('figcaption')
+            if (captionEle !== null) {
+                caption = captionEle.innerText
+            }
             return {
                 img: img.getAttribute('data-src') ?? img.src,
                 height: scale * (img.getAttribute('data-height') ?? img.naturalHeight),
                 width: scale * (img.getAttribute('data-width') ?? img.naturalWidth),
                 alt: img.getAttribute('alt'),
-                caption: img.getAttribute('alt'),
+                caption: caption,
                 thumb: img.src,
             }
         }
