@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.10.2](https://github.com/hbstack/bigger-picture/compare/v0.10.1...v0.10.2) (2024-08-05)
+
+
+### Bug Fixes
+
+* **deps:** update dependency stylelint-scss to v6.1.0 ([5fa9da2](https://github.com/hbstack/bigger-picture/commit/5fa9da285e7aa3e3c5eefb7614b99cc1d05a230f))
+* **deps:** update dependency stylelint-scss to v6.2.0 ([d3f1f19](https://github.com/hbstack/bigger-picture/commit/d3f1f19ce01a9f71d7e6ff5f08c2b84b9d919e84))
+* **deps:** update dependency stylelint-scss to v6.2.1 ([9551c50](https://github.com/hbstack/bigger-picture/commit/9551c50950ef8bbc7bdb3d4a4db34936791a2a18))
+* **deps:** update dependency stylelint-scss to v6.4.1 ([dacbd6f](https://github.com/hbstack/bigger-picture/commit/dacbd6f4969443e53160e44fb632399c8b3e2f3b))
+* **deps:** update dependency stylelint-scss to v6.5.0 ([c77ee36](https://github.com/hbstack/bigger-picture/commit/c77ee3634f7022abd48d00d55343890e2ff3e8df))
+
 ## [0.10.1](https://github.com/hbstack/bigger-picture/compare/v0.10.0...v0.10.1) (2023-12-28)
 
 
