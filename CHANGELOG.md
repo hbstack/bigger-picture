@@ -1,5 +1,28 @@
 # Changelog
 
+## [0.10.2](https://github.com/hbstack/bigger-picture/compare/v0.10.1...v0.10.2) (2025-10-20)
+
+
+### Bug Fixes
+
+* **deps:** update dependency stylelint-scss to v6.1.0 ([5fa9da2](https://github.com/hbstack/bigger-picture/commit/5fa9da285e7aa3e3c5eefb7614b99cc1d05a230f))
+* **deps:** update dependency stylelint-scss to v6.10.0 ([516366f](https://github.com/hbstack/bigger-picture/commit/516366f11e075b4eee83dbee76ab1c2721ed241c))
+* **deps:** update dependency stylelint-scss to v6.10.1 ([266af79](https://github.com/hbstack/bigger-picture/commit/266af79e995c032621381b1f2695a329a139eba8))
+* **deps:** update dependency stylelint-scss to v6.11.0 ([2ea11d1](https://github.com/hbstack/bigger-picture/commit/2ea11d11ed26c1607a4ca343eeea1adc93f8f3bd))
+* **deps:** update dependency stylelint-scss to v6.11.1 ([bc7ecb1](https://github.com/hbstack/bigger-picture/commit/bc7ecb13858a7f680ad03603be22482f48f7954e))
+* **deps:** update dependency stylelint-scss to v6.12.0 ([848f602](https://github.com/hbstack/bigger-picture/commit/848f602633f532b48fa6d120758faa748c4a5648))
+* **deps:** update dependency stylelint-scss to v6.12.1 ([afd44b7](https://github.com/hbstack/bigger-picture/commit/afd44b7c0776334bef4d0f07786c939c577053ff))
+* **deps:** update dependency stylelint-scss to v6.2.0 ([d3f1f19](https://github.com/hbstack/bigger-picture/commit/d3f1f19ce01a9f71d7e6ff5f08c2b84b9d919e84))
+* **deps:** update dependency stylelint-scss to v6.2.1 ([9551c50](https://github.com/hbstack/bigger-picture/commit/9551c50950ef8bbc7bdb3d4a4db34936791a2a18))
+* **deps:** update dependency stylelint-scss to v6.4.1 ([dacbd6f](https://github.com/hbstack/bigger-picture/commit/dacbd6f4969443e53160e44fb632399c8b3e2f3b))
+* **deps:** update dependency stylelint-scss to v6.5.0 ([c77ee36](https://github.com/hbstack/bigger-picture/commit/c77ee3634f7022abd48d00d55343890e2ff3e8df))
+* **deps:** update dependency stylelint-scss to v6.5.1 ([72a1b7d](https://github.com/hbstack/bigger-picture/commit/72a1b7d20cef066662b9f928786bfc9d8090d75d))
+* **deps:** update dependency stylelint-scss to v6.6.0 ([a4f1aa7](https://github.com/hbstack/bigger-picture/commit/a4f1aa767e09aa973d99d657fd431817a422fec8))
+* **deps:** update dependency stylelint-scss to v6.7.0 ([8121e1d](https://github.com/hbstack/bigger-picture/commit/8121e1de485de2828086dad3682572cda6e6d5c3))
+* **deps:** update dependency stylelint-scss to v6.8.0 ([7719e89](https://github.com/hbstack/bigger-picture/commit/7719e89963f675327bc3291ad6c1d5efede6947a))
+* **deps:** update dependency stylelint-scss to v6.8.1 ([88a6da9](https://github.com/hbstack/bigger-picture/commit/88a6da99b95fea7bae19fc5c30f45aca536408ba))
+* **deps:** update dependency stylelint-scss to v6.9.0 ([28a0226](https://github.com/hbstack/bigger-picture/commit/28a0226df25657b536538cd05e6d70ba452ab477))
+
 ## [0.10.1](https://github.com/hbstack/bigger-picture/compare/v0.10.0...v0.10.1) (2023-12-28)
 
 
